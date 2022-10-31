@@ -13,23 +13,24 @@ An ecommerce website nowadays plays a crucial role in every business model and f
 - A buyer can search for products (1)
 - A buyer can filter products by price category, availability, rating (4)
 - A buyer can see the all reviews of a product (1)
-- A buyer can add a payment method to their account (1) **(Do not store information that does not require storing. This is a security risk.)**
 - A buyer can add/remove items from the cart and edit their quantity (3)
+- A buyer can purchase a subscription to receive 10% of on all orders (1)
+- A buyer can apply coupon/promo code at checkout to receive discounts (1)
 - A buyer can see their purchase history (1)
-- A buyer can change the currency ~~and language (2)~~**(1)** **(Internationalization is a requirement of the project and not a feature that you can count.)**
-- A  buyer can add items to favorites (1) **(also delete)**
+- A buyer can leave a review for a product (1)
+- A buyer can leave a seller feedback (1)
 - A buyer can report a listing(1)
 
 # All Features of sellers (Total 10) 💵💸 :
  
-- A seller can list items for sell and upload pics of them (~~2~~**1**) **(Uploading pics is part of listing.)**
+- A seller can list items for sell (1) 
 - A seller can remove/edit items  (2)
-- A seller can put limit on an item (stock) (1) **(Or you can say that the user can set their inventory quantity.)**
+- A seller can set inventory quantity on their products (1)
 - A seller can see their orders and filter them through date or price (1)
 - A seller can see the list of items they are selling (1)
 - A seller can cancel an order (1)
 - A seller can see their total balance of sales (1)
-- A seller’s listing which receives more than 5 reports will get deleted (1) **(Can a user report many times? I would suggest this be a task under the moderator role: As a Moderator, I can see reported items. As a Moderator, I can select whether or not the item should be deleted based on community standards.)**
+- A seller can mark an item as ship and add tracking number (1)
 
 # Time Estimation⌛⏲:
 As a team we will model our website to look like Etsy. The estimated time is likely to be 180 hours that will be divided equally per team member. 
