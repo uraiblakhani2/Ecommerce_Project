@@ -59,9 +59,7 @@
                         <?php }
                         else{
                         ?>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/Cart/index">Carts</a>
-                        </li>
+
                         <?php if ($_SESSION['is_logged_in'] == "seller") { ?>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -69,19 +67,22 @@
                                     Seller Panel
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="SellerProduct/index">Products</a></li>
-                                    <li><a class="dropdown-item" href="/Login/seller">Orders</a></li>
+                                    <li><a class="dropdown-item" href="/SellerProduct/index">Products</a></li>
+                                    <li><a class="dropdown-item" href="/Order/seller">Orders</a></li>
                                 </ul>
                             </li>
                             <?php }
                             else{ ?>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="/Cart/index">Carts</a>
+                                </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                        aria-expanded="false">
                                         Buyer Panel
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="SellerProduct/index">My Orders</a></li>
+                                        <li><a class="dropdown-item" href="/Order/myorders">My Orders</a></li>
                                     </ul>
                                 </li>
                             <?php } ?>

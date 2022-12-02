@@ -7,24 +7,26 @@ use app\models\Product;
 
 class SellerProduct extends \app\core\Controller
 {
-    function index(){
-        require 'app/views/layout/header.php';
+    public function index(){
+        
         $productModel = new Product();
         $products = $productModel->getBySeller();
+        // $report = new Product();
+        // $reports = $report->getReports("1");
         require 'app/views/seller/product/index.php';
-        require 'app/views/layout/footer.php';
+        
     }
 
-    function create(){
-        require 'app/views/layout/header.php';
+    public function create(){
+        
         //Get all categories for dropdown
         $categoryModel = new Category();
         $categories = $categoryModel->getAll();
         require 'app/views/seller/product/create.php';
-        require 'app/views/layout/footer.php';
+        
     }
 
-    function save(){
+    public function save(){
         if(isset($_POST['saveProduct'])){
             $product = new Product();
             $product->name = $_POST['name'];
@@ -53,21 +55,21 @@ class SellerProduct extends \app\core\Controller
     }
 
     public function edit($productId){
-        require 'app/views/layout/header.php';
+        
 
         //Get all categories for dropdown
         $categoryModel = new Category();
         $categories = $categoryModel->getAll();
 
-        //Get selected productd detail
+        //Get selected products detail
         $productModel = new Product();
         $product = $productModel->getById($productId);
         require 'app/views/seller/product/edit.php';
-        require 'app/views/layout/footer.php';
+        
     }
 
     public function update($productId){
-        //Get selected productd detail
+        //Get selected products detail
         $productModel = new Product();
         $isProduct = $productModel->getById($productId);
         if(isset($_POST['saveProduct']) && $isProduct){
@@ -99,12 +101,23 @@ class SellerProduct extends \app\core\Controller
         }
     }
 
-    function delete($productId){
+    public function delete($productId){
         $productModel = new Product();
         $isProduct = $productModel->getById($productId);
         if($isProduct){
             $productModel->deleteById($productId);
         }
         header("location:/SellerProduct/index");
+    }
+
+    public function report($productId){
+        if(!empty($_SESSION['buyer_id']) ) {
+            $buyerId = $_SESSION['buyer_id'];
+            $report = new Product();
+            $report->buyer_id = $buyerId;
+            $report->product_id = $productId;
+            $report->createReport();
+        }
+        header("location:/home/productDetail/$productId");
     }
 }

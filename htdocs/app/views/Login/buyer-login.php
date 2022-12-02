@@ -1,7 +1,9 @@
+<?php include 'app\views\layout\header.php'; ?>
+<?php include 'app\views\layout\footer.php'; ?>
 <div class="container mt-5">
 
     <div class="row">
-        <div class="col-sm-6 m-auto">
+        <div class="col-sm-4 m-auto">
             <div class="card">
                 <div class="card-header">
                     <h4>Buyer Login</h4>

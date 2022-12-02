@@ -1,3 +1,5 @@
+<?php include 'app\views\layout\header.php'; ?>
+<?php include 'app\views\layout\footer.php'; ?>
 <div class="container mt-5">
     <div class="row">
         <div class="col-sm-12">

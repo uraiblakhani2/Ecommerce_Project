@@ -7,13 +7,12 @@ use app\models\Seller;
 
 class Login extends \app\core\Controller
 {
-    function buyer(){
-        require 'app/views/layout/header.php';
-        require 'app/views/Login/buyer-login.php';
-        require 'app/views/layout/footer.php';
+    public function buyer(){
+
+        $this->view('Login/buyer-login');
     }
 
-    function buyerLogin(){
+    public function buyerLogin(){
         if(isset($_POST['login'])){
             $buyer = new Buyer();
             $user = $buyer->get($_POST['username']);
@@ -41,13 +40,11 @@ class Login extends \app\core\Controller
     }
 
 
-    function seller(){
-        require 'app/views/layout/header.php';
-        require 'app/views/Login/seller-login.php';
-        require 'app/views/layout/footer.php';
+    public function seller(){
+        $this->view('Login/seller-login');
     }
 
-    function sellerLogin(){
+    public function sellerLogin(){
         if(isset($_POST['login'])){
             $seller = new Seller();
             $user = $seller->get($_POST['username']);
@@ -74,7 +71,7 @@ class Login extends \app\core\Controller
         }
     }
 
-    function logout(){
+    public function logout(){
         session_destroy();
         header("location:/Home/index");
     }

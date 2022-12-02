@@ -1,3 +1,5 @@
+<?php include 'app\views\layout\header.php'; ?>
+<?php include 'app\views\layout\footer.php'; ?>
 <div class="container mt-5">
     <div class="row">
         <div class="col-sm-12">
@@ -18,6 +20,8 @@
                     <th>Brand</th>
                     <th>Edit</th>
                     <th>Delete</th>
+                    <th>Reports</th>
+                    
                 </tr>
                 </thead>
                 <tbody>
@@ -28,8 +32,13 @@
                     <td><?php echo $product->price;?></td>
                     <td><?php echo $product->stock;?></td>
                     <td><?php echo $product->brand;?></td>
+                    
+                    
+
+
                     <td><a href="/SellerProduct/edit/<?php echo $product->product_id;?>">Edit</a></td>
                     <td><a href="/SellerProduct/delete/<?php echo $product->product_id;?>" onclick="return confirm('Are you sure want to delete it?')" class="text-danger">Delete</a></td>
+                    <td><?php echo "not working yet"?></td>
                 </tr>
                 <?php }?>
                 </tbody>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2022 at 11:42 AM
+-- Generation Time: Nov 26, 2022 at 12:40 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -61,14 +61,6 @@ CREATE TABLE `carts` (
   `qty` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `carts`
---
-
-INSERT INTO `carts` (`cart_id`, `buyer_id`, `product_id`, `qty`) VALUES
-(2, 1, 5, 5),
-(3, 1, 6, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -85,9 +77,9 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`category_id`, `category_name`) VALUES
-(1, 'Clothing'),
-(2, 'Jewellery'),
-(3, 'Toys');
+(1, 'Bags'),
+(2, 'Arts'),
+(3, 'Decor');
 
 -- --------------------------------------------------------
 
@@ -100,6 +92,32 @@ CREATE TABLE `coupons` (
   `coupon_code` varchar(20) NOT NULL,
   `discount_per` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `coupons`
+--
+
+INSERT INTO `coupons` (`coupon_id`, `coupon_code`, `discount_per`) VALUES
+(1, 'GET10', 10);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listing_reports`
+--
+
+CREATE TABLE `listing_reports` (
+  `report_id` int(11) NOT NULL,
+  `buyer_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `listing_reports`
+--
+
+INSERT INTO `listing_reports` (`report_id`, `buyer_id`, `product_id`) VALUES
+(1, 1, 5);
 
 -- --------------------------------------------------------
 
@@ -114,8 +132,20 @@ CREATE TABLE `orders` (
   `qty` int(11) NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `order_date` date NOT NULL,
-  `order_status` varchar(20) NOT NULL
+  `order_status` varchar(20) NOT NULL,
+  `coupon_code` varchar(100) DEFAULT NULL,
+  `discount_per` decimal(10,2) DEFAULT 0.00
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `buyer_id`, `product_id`, `qty`, `price`, `order_date`, `order_status`, `coupon_code`, `discount_per`) VALUES
+(7, 1, 5, 6, '10000.00', '2022-11-18', 'Cancelled', '', '0.00'),
+(8, 1, 6, 2, '10000.00', '2022-11-18', 'Shipped', '', '0.00'),
+(9, 1, 5, 3, '200.00', '2022-11-25', 'New', '', '0.00'),
+(10, 1, 6, 1, '500.00', '2022-11-25', 'Cancelled', '', '0.00');
 
 -- --------------------------------------------------------
 
@@ -141,8 +171,8 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `name`, `price`, `brand`, `image`, `upc`, `stock`, `description`, `category_id`, `seller_id`) VALUES
-(5, 'Gunmetal Vine Convertible Drop Earrings ', '1000.00', 'Gunmetal ', 'earring.jpg', '719318986776', 10, 'Inspired by the natural world, Tiffany Victoria designs capture the fluid movement of flowers, vines and leaves with a mix of expertly cut diamonds. These convertible earrings effortlessly adjust from diamond studs to striking drop earrings for when youre dressed up or down. Theyre crafted of 18k gold with a contrast of high polish and sandblasted finishes', 2, 1),
-(6, 'Spider-Man Gamer Verse Adult Costume', '25.00', 'Marvel', 'spiderman.jpg', '719318986733', 15, '100% polyester fabric, 100% polyurethane foam Jumpsuit has hook & loop fastener at center back All-over printed graphics Attached foam boot covers have elastic bands under foot Fabric mask covers entire head, closes w/ hook & loop fastener at back Mesh-covered eye openings allow limited vision Officially licensed', 1, 1);
+(5, 'Iphone 10s11', '200.00', 'Apple', '2.png', 'SB71', 0, 'Iphone 10s11', 3, 1),
+(6, 'Laptop', '500.00', 'Lenevo', '1.png', 'LB71', 100, 'its good', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -157,6 +187,13 @@ CREATE TABLE `product_reviews` (
   `rating` int(11) NOT NULL,
   `comment` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product_reviews`
+--
+
+INSERT INTO `product_reviews` (`review_id`, `product_id`, `buyer_id`, `rating`, `comment`) VALUES
+(3, 5, 1, 5, 'best');
 
 -- --------------------------------------------------------
 
@@ -181,16 +218,22 @@ INSERT INTO `sellers` (`seller_id`, `seller_username`, `balance`, `password_hash
 -- --------------------------------------------------------
 
 --
--- Table structure for table `seller_reviews`
+-- Table structure for table `seller_feedbacks`
 --
 
-CREATE TABLE `seller_reviews` (
+CREATE TABLE `seller_feedbacks` (
   `seller_review_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
+  `seller_id` int(11) NOT NULL,
   `buyer_id` int(11) NOT NULL,
-  `rating` int(11) NOT NULL,
-  `comment` varchar(100) NOT NULL
+  `feedback` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `seller_feedbacks`
+--
+
+INSERT INTO `seller_feedbacks` (`seller_review_id`, `seller_id`, `buyer_id`, `feedback`) VALUES
+(1, 1, 1, 'okay i will do my better');
 
 -- --------------------------------------------------------
 
@@ -204,6 +247,13 @@ CREATE TABLE `shippings` (
   `tracking_number` varchar(20) NOT NULL,
   `shipping_status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `shippings`
+--
+
+INSERT INTO `shippings` (`shipping_id`, `order_id`, `tracking_number`, `shipping_status`) VALUES
+(1, 8, 'ABC12', '');
 
 --
 -- Indexes for dumped tables
@@ -236,6 +286,14 @@ ALTER TABLE `coupons`
   ADD PRIMARY KEY (`coupon_id`);
 
 --
+-- Indexes for table `listing_reports`
+--
+ALTER TABLE `listing_reports`
+  ADD PRIMARY KEY (`report_id`),
+  ADD KEY `buyer_id` (`buyer_id`),
+  ADD KEY `product_id` (`product_id`);
+
+--
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
@@ -265,12 +323,12 @@ ALTER TABLE `sellers`
   ADD UNIQUE KEY `seller_username` (`seller_username`);
 
 --
--- Indexes for table `seller_reviews`
+-- Indexes for table `seller_feedbacks`
 --
-ALTER TABLE `seller_reviews`
+ALTER TABLE `seller_feedbacks`
   ADD PRIMARY KEY (`seller_review_id`),
   ADD KEY `buyer_id` (`buyer_id`),
-  ADD KEY `product_id` (`product_id`);
+  ADD KEY `product_id` (`seller_id`);
 
 --
 -- Indexes for table `shippings`
@@ -293,7 +351,7 @@ ALTER TABLE `buyers`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -305,13 +363,19 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `coupons`
 --
 ALTER TABLE `coupons`
-  MODIFY `coupon_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `coupon_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `listing_reports`
+--
+ALTER TABLE `listing_reports`
+  MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -323,7 +387,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `product_reviews`
 --
 ALTER TABLE `product_reviews`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sellers`
@@ -332,16 +396,16 @@ ALTER TABLE `sellers`
   MODIFY `seller_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `seller_reviews`
+-- AUTO_INCREMENT for table `seller_feedbacks`
 --
-ALTER TABLE `seller_reviews`
-  MODIFY `seller_review_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `seller_feedbacks`
+  MODIFY `seller_review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `shippings`
 --
 ALTER TABLE `shippings`
-  MODIFY `shipping_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `shipping_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -354,18 +418,25 @@ ALTER TABLE `carts`
   ADD CONSTRAINT `carts_ibfk_1` FOREIGN KEY (`buyer_id`) REFERENCES `buyers` (`buyer_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
+-- Constraints for table `listing_reports`
+--
+ALTER TABLE `listing_reports`
+  ADD CONSTRAINT `listing_reports_ibfk_1` FOREIGN KEY (`buyer_id`) REFERENCES `buyers` (`buyer_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `listing_reports_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
 -- Constraints for table `product_reviews`
 --
 ALTER TABLE `product_reviews`
-  ADD CONSTRAINT `product_reviews_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `buyers` (`buyer_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `product_reviews_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `product_reviews_ibfk_2` FOREIGN KEY (`buyer_id`) REFERENCES `buyers` (`buyer_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints for table `seller_reviews`
+-- Constraints for table `seller_feedbacks`
 --
-ALTER TABLE `seller_reviews`
-  ADD CONSTRAINT `seller_reviews_ibfk_1` FOREIGN KEY (`buyer_id`) REFERENCES `buyers` (`buyer_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `seller_reviews_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON UPDATE NO ACTION;
+ALTER TABLE `seller_feedbacks`
+  ADD CONSTRAINT `seller_feedbacks_ibfk_1` FOREIGN KEY (`buyer_id`) REFERENCES `buyers` (`buyer_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `seller_feedbacks_ibfk_2` FOREIGN KEY (`seller_id`) REFERENCES `sellers` (`seller_id`) ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `shippings`

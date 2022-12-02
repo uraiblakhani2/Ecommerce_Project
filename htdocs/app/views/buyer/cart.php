@@ -1,3 +1,5 @@
+<?php include 'app\views\layout\header.php'; ?>
+<?php include 'app\views\layout\footer.php'; ?>
 <div class="container mt-5">
     <div class="row">
         <div class="col-sm-12">
@@ -5,7 +7,10 @@
         </div>
     </div>
     <div class="row">
+        <?php  if($carts){?>
+        <form method="post" action="/Order/create">
         <div class="col-sm-12">
+
             <table class="table table-bordered">
                 <thead>
                 <tr>
@@ -17,7 +22,9 @@
                 </thead>
                 <tbody>
                 <?php
+
                 $subTotal = 0;
+                $discount = 0;
                 foreach ($carts as $cart) {
                     $productTotal = $cart->qty * $cart->price;
                     $subTotal +=$productTotal;
@@ -40,11 +47,13 @@
                             $<?php echo $cart->price; ?>
                         </td>
                         <td>
-                           <form method="post" action="/Cart/update/<?php echo $cart->cart_id; ?>">
-                               <input type="number" name="qty" value="<?php echo $cart->qty; ?>" class="form-control"
-                                      required>
-                               <button type="submit" class="btn btn-sm btn-primary mt-1" name="updateCart">Update</button>
-                           </form>
+                          <div>
+                                 <form>
+                                     <input type="number" name="qty" value="<?php echo $cart->qty; ?>" id="<?php echo $cart->cart_id; ?>" class="form-control"
+                                            required>
+                                     <button type="button" class="btn btn-sm btn-primary mt-1" onclick="updateQty(<?php echo $cart->cart_id; ?>)" name="updateCart">Update</button>
+
+                                 </form>                          </div>
                         </td>
                         <td>$<?php echo $productTotal; ?></td>
 
@@ -58,17 +67,26 @@
                 <tr>
                     <td colspan="3"></td>
                     <td class="text-end">
-                        <input type="text" name="coupon" class="form-control" placeholder="Apply coupon code">
-                        <button type="submit" class="btn btn-sm btn-warning mt-1" name="updateCart">Apply</button>
+                        <form action="" method="get">
+                            <input type="text" name="coupon" class="form-control" value="<?php  echo $code; ?>" placeholder="Apply coupon code">
+                            <?php if($coupon){echo "<p class='text-success'>Valid! get $coupon->discount_per % off</p>";}?>
+                            <button type="submit" class="btn btn-sm btn-warning mt-1" name="apply">Apply</button>
+                        </form>
                     </td>
                 </tr>
                 <tr>
-                    <th colspan="3" class="text-end">Disocunt:</th>
-                    <td>$<?php echo $subTotal;?></td>
+                    <th colspan="3" class="text-end">Discount:</th>
+                    <td>$<?php
+                        if($coupon){
+                            $discount = ($subTotal * $coupon->discount_per) / 100;
+
+                        };
+                        echo $discount;
+                        ?></td>
                 </tr>
                 <tr>
                     <th colspan="3" class="text-end">Pay:</th>
-                    <td>$<?php echo $subTotal;?></td>
+                    <td>$<?php echo $subTotal-$discount;?></td>
                 </tr>
                 </tbody>
             </table>
@@ -76,8 +94,26 @@
         </div>
         <div class="row">
             <div class="col-sm-12 text-end">
-                <button type="submit" class="btn btn-lg btn-success">Please Order</button>
+                <input type="hidden" name="coupon_code"  value="<?php  echo $code; ?>">
+                <button type="submit" name="newOrder" class="btn btn-lg btn-success">Please Order</button>
             </div>
         </div>
+        </form>
+        <?php }else{
+            echo "<h4>No products in the cart</h4>";
+        }?>
     </div>
 </div>
+<script>
+    function updateQty(id){
+        var qty = $("#"+id).val();
+        $.ajax({
+            url:"/Cart/update/"+id,
+            type:"POST",
+            data:{'qty': qty},
+            success: function() {
+            window.location.reload();
+            }
+        })
+    }
+</script>

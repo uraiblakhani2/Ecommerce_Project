@@ -4,24 +4,12 @@ namespace app\models;
 
 class Cart extends \app\core\Model
 {
-    function create()
+    public function create()
     {
-        $SQL = "INSERT INTO carts (
-                    buyer_id,
-                    product_id,
-                    qty
-                    ) VALUES
-                          (
-                           :buyer_id,
-                           :product_id,
-                           :qty
-                          )";
+        $SQL = "INSERT INTO carts (buyer_id, product_id, qty )
+         VALUES(:buyer_id,:product_id,:qty)";
         $STMT = self::$_connection->prepare($SQL);
-        $STMT->execute([
-            'buyer_id' => $this->buyer_id,
-            'product_id' => $this->product_id,
-            'qty' => $this->qty
-        ]);
+        $STMT->execute(['buyer_id' => $this->buyer_id,'product_id' => $this->product_id,'qty' => $this->qty]);
 
 
     }
@@ -45,28 +33,20 @@ class Cart extends \app\core\Model
         return $STMT->fetch();
     }
 
-    function updateById($cartId)
+   public function updateById($cartId)
     {
-        $SQL = "UPDATE carts SET 
-                    qty=:qty
-                    where cart_id=:cart_id 
-                    ";
+        $SQL = "UPDATE carts SET qty=:qty where cart_id=:cart_id ";
         $STMT = self::$_connection->prepare($SQL);
-        $STMT->execute([
-            'qty' => $this->qty,
-            'cart_id' => $cartId
-        ]);
+        $STMT->execute(['qty' => $this->qty,'cart_id' => $cartId]);
 
     }
 
-    function delete($cartId)
+
+    public function delete($cartId)
     {
-        $SQL = "DELETE FROM carts where cart_id=:cart_id 
-                    ";
+        $SQL = "DELETE FROM carts where cart_id=:cart_id ";
         $STMT = self::$_connection->prepare($SQL);
-        $STMT->execute([
-            'cart_id' => $cartId
-        ]);
+        $STMT->execute(['cart_id' => $cartId]);
 
     }
 

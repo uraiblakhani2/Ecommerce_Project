@@ -8,13 +8,13 @@ use app\models\Seller;
 class Register extends \app\core\Controller{
 
     function buyer(){
-        require 'app/views/layout/header.php';
+        
         require 'app/views/Register/buyer-register.php';
-        require 'app/views/layout/footer.php';
+        
     }
 
 
-    function buyerSave(){
+    public function buyerSave(){
         if(isset($_POST['save'])){
             $buyer = new Buyer();
             $check = $buyer->get($_POST['username']);
@@ -42,13 +42,13 @@ class Register extends \app\core\Controller{
     }
 
 
-    function seller(){
-        require 'app/views/layout/header.php';
+    public function seller(){
+        
         require 'app/views/Register/seller-register.php';
-        require 'app/views/layout/footer.php';
+        
     }
 
-    function sellerSave(){
+    public function sellerSave(){
         if(isset($_POST['save'])){
             $seller = new Seller();
             $check = $seller->get($_POST['username']);

@@ -15,21 +15,12 @@ class Seller extends \app\core\Model
         return $STMT->fetch();
     }
 
-    function create()
+    public function create()
     {
-        $SQL = "INSERT INTO sellers (
-                    seller_username,
-                    password_hash
-                    ) VALUES
-                          (
-                           :seller_username,
-                           :password_hash
-                          )";
+        $SQL = "INSERT INTO sellers (seller_username,password_hash)
+         VALUES(:seller_username,:password_hash)";
         $STMT = self::$_connection->prepare($SQL);
-        $STMT->execute([
-            'seller_username' => $this->username,
-            'password_hash' => $this->password
-        ]);
+        $STMT->execute(['seller_username' => $this->username,'password_hash' => $this->password]);
 
     }
 
