@@ -76,6 +76,15 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="/Cart/index">Carts</a>
                                 </li>
+
+                                <?php if (is_null($_SESSION['secret_key2'])) { ?> 
+                                <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/Login/setup2fa">Setup 2fa</a>
+                                    
+                                      <?php } ?>
+                                
+
+                                </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                        aria-expanded="false">
@@ -85,7 +94,7 @@
                                         <li><a class="dropdown-item" href="/Order/myorders">My Orders</a></li>
                                     </ul>
                                 </li>
-                            <?php } ?>
+                                <?php } ?>
 
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="/Login/logout">Logout</a>

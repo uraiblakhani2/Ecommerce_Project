@@ -4,10 +4,13 @@ namespace app\filters;
 #[\Attribute]
 class Login extends \app\core\AccessFilter{
 	public function execute(){
-		if(!isset($_SESSION['user_id'])){
-			header('location:/Register/index?error=You must be logged in to access this location.');
+		if(!isset($_SESSION['buyer_id'])){
+			header('location:/Login/buyer?error=You must be logged in to access this location.');
 			return true;
-		}
-		return false;
+		}elseif($_SESSION['secret_key']!=null){
+			header('location:/Login/check2fa');
+			return true;
+		}else
+			return false;
 	}
 }

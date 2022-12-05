@@ -15,6 +15,21 @@ class Seller extends \app\core\Model
         return $STMT->fetch();
     }
 
+
+
+    public function getSellerbyProductId($product_id)
+    {
+
+        $SQL = "SELECT seller_id FROM products WHERE product_id=:product_id";
+        $STMT = self::$_connection->prepare($SQL);
+        $STMT->execute(['product_id' => $product_id]);
+        $STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Seller');
+        return $STMT->fetch();
+    }
+
+
+    
+
     public function create()
     {
         $SQL = "INSERT INTO sellers (seller_username,password_hash)

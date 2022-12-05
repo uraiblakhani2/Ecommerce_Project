@@ -24,5 +24,27 @@ class Buyer extends \app\core\Model
 
     }
 
+    public function update2fa(){
+        $SQL = "UPDATE buyers SET secret_key=:secret_key WHERE buyer_id=:buyer_id";
+        $STMT = self::$_connection->prepare($SQL);
+        $STMT->execute(['secret_key'=>$this->secret_key,
+                        'buyer_id'=>$this->buyer_id]);
+    }
+
+
+    public function getBuyer($buyer_id){
+		$SQL = "SELECT * FROM user WHERE buyer_id=:buyer_id";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['buyer_id'=>$buyer_id]);
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Buyer');
+		return $STMT->fetch();
+	}
+
+	public function updatePassword(){
+		$SQL = "UPDATE user SET password_hash=:password_hash WHERE buyer_id=:buyer_id";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['password_hash'=>$this->password_hash,
+						'buyer_id'=>$this->buyer_id]);
+	}
 
 }

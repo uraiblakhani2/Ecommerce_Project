@@ -5,7 +5,9 @@ namespace app\controllers;
 class Review extends \app\core\Controller
 {
     public function create($productId){
-        
+        if((empty($_SESSION['buyer_id']) && isset($_POST['saveReview']))){
+            header("location:/home/productDetail/$productId"."?error=please login before leaving a review");
+        }
         if(!empty($_SESSION['buyer_id']) && isset($_POST['saveReview'])) {
             $buyerId = $_SESSION['buyer_id'];
             $reviewModel = new \app\models\Review();
