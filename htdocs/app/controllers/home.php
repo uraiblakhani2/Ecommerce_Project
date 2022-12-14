@@ -31,7 +31,6 @@ class home extends \app\core\Controller{
         //Check for eligible review
         $reviewModel = new Review();
         $feedbackModel = new SellerFeedback();
-        $eligibleReview = $reviewModel->checkIsEligible($productId);
         $seller = new Seller();
         $seller_id = $seller-> getSellerbyProductId($productId);
         $reviews = $reviewModel = $reviewModel->getReviewsByProductId($productId);

@@ -25,7 +25,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($products as $product){?>
+                <?php foreach ($products as $product){
+                    $reportes = 0;?>
                 <tr>
                     <td><img src="<?php echo "/public/images/".$product->image;?>" width="50" height="50"></td>
                     <td><?php echo $product->name;?></td>
@@ -38,7 +39,24 @@
 
                     <td><a href="/SellerProduct/edit/<?php echo $product->product_id;?>">Edit</a></td>
                     <td><a href="/SellerProduct/delete/<?php echo $product->product_id;?>" onclick="return confirm('Are you sure want to delete it?')" class="text-danger">Delete</a></td>
-                    <td><?php echo "not working yet"?></td>
+                    
+                    
+                    <?php foreach ($reports as $items) {
+                        if($items->product_id == $product->product_id)
+                           $reportes++;
+                            
+                            
+                            }
+                            
+
+                    ?>
+
+                    <td><?php echo $reportes;?></td>
+
+                    
+                    
+                    
+                    
                 </tr>
                 <?php }?>
                 </tbody>

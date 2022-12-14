@@ -33,7 +33,7 @@ if(isset($_GET['message'])){
         <div class="col-sm-4 m-auto">
             <div class="card">
                 <div class="card-header">
-                    <h4>Buyer Login</h4>
+                    <h4>My Account</h4>
                 </div>
                 <div class="card-body">
                     <form action="/Login/buyerLogin" method="post">

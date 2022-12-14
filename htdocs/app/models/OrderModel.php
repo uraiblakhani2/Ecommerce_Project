@@ -29,6 +29,27 @@ class OrderModel extends \app\core\Model
         return $STMT->fetchAll();
     }
 
+    public function checkMembership($buyer_id)
+    {
+        $product_id = 1;
+        $SQL = "SELECT * FROM orders  WHERE buyer_id=:buyer_id AND product_id=:product_id";
+        $STMT = self::$_connection->prepare($SQL);
+        $STMT->execute(['buyer_id' => $buyer_id,'product_id' => $product_id]);
+        $STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Buyer');
+        return $STMT->fetch();
+    }
+
+    public function updateMembership($buyer_id)
+    {
+        $membership_status = "yes";
+        $SQL = "UPDATE buyers SET membership_status=:membership_status where buyer_id=:buyer_id ";
+        $STMT = self::$_connection->prepare($SQL);
+        $STMT->execute(['buyer_id' => $buyer_id,'membership_status' => $membership_status]);
+
+    }
+
+
+
     public function getSellerOrders($sellerId, $params)
     {
         $SQL = "SELECT orders.*, name, image FROM orders inner join products on products.product_id=orders.product_id WHERE seller_id=:seller_id";
@@ -56,16 +77,28 @@ class OrderModel extends \app\core\Model
 
 
 
-    public function shipCreate()
+    public function shipCreate($order_id, $tracking_number)
     {
         $SQL = "INSERT INTO shippings (order_id,tracking_number)
          VALUES(:order_id,:tracking_number)";
         $STMT = self::$_connection->prepare($SQL);
         $STMT->execute([
-            'order_id' => $this->order_id,
-            'tracking_number' => $this->tracking_number
+            'order_id' => $order_id,
+            'tracking_number' => $tracking_number
         ]);
     }
+
+
+    public function getBuyerShipments($buyer_id){
+        $sql = "SELECT * FROM shippings inner join orders on orders.order_id=shippings.order_id WHERE buyer_id=:buyer_id";
+		$STMT = self::$_connection->prepare($sql);
+		$STMT->execute(['buyer_id' => $buyer_id]);
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Buyer');
+		return $STMT->fetchAll();
+
+
+    }
+
 
   
     public function getAllships(){

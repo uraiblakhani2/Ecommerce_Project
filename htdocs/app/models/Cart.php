@@ -44,7 +44,7 @@ class Cart extends \app\core\Model
 
     public function delete($cartId)
     {
-        $SQL = "DELETE FROM cart where cart_id=:cart_id ";
+        $SQL = "DELETE FROM carts where cart_id=:cart_id ";
         $STMT = self::$_connection->prepare($SQL);
         $STMT->execute(['cart_id' => $cartId]);
 

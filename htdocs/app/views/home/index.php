@@ -54,7 +54,7 @@
         <?php foreach ($products as $product){?>
         <div class="col-sm-3">
             <div class="card" >
-                <img src="<?php echo "/public/images/".$product->image;?>" class="card-img-top" alt="...">
+                <img src="<?php echo "/public/images/".$product->image;?>" class="card-img-top" alt="..." width="300" height="300">
                 <div class="card-body text-center">
                     <h5 class="card-title"><?php echo $product->name;?></h5>
                     <p class="card-text">$<?php echo $product->price;?></p>

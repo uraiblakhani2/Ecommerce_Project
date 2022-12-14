@@ -11,8 +11,8 @@ class SellerProduct extends \app\core\Controller
         
         $productModel = new Product();
         $products = $productModel->getBySeller();
-        // $report = new Product();
-        // $reports = $report->getReports("1");
+        $report = new Product();
+        $reports = $report->getReports();
         require 'app/views/seller/product/index.php';
         
     }

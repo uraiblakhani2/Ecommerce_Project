@@ -56,12 +56,25 @@
                         </td>
 
                         <td>
+                    
+
                         <?php foreach ($ships as $item) {
+                            if($item->order_id == $order->order_id ){
+                                 echo $item->tracking_number;
+
+								}
+
+                                else{
+                                    echo "Not yet shipped";
+                                }
+                            
+                            
+                            }
+
+
                     ?>
-                     <?php echo $item->tracking_number; ?>
 
                
-                <?php } ?>
                         </td>
                         
                         

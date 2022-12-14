@@ -1,6 +1,8 @@
 <?php include 'app\views\layout\header.php'; ?>
 <?php include 'app\views\layout\footer.php'; ?>
 <div class="container mt-5">
+<h4><?php if(!empty($_SESSION['hasMembership'])){echo "You have membership and will automatically receive 10% off your order";}?></h4>
+
     <div class="row">
         <div class="col-sm-12">
             <h1>Carts</h1>
@@ -49,8 +51,7 @@
                         <td>
                           <div>
                                  <form>
-                                     <input type="number" name="qty" value="<?php echo $cart->qty; ?>" id="<?php echo $cart->cart_id; ?>" class="form-control"
-                                            required>
+                                     <input type="number" name="qty" value="<?php echo $cart->qty; ?>" id="<?php echo $cart->cart_id; ?>" class="form-control" required >
                                      <button type="button" class="btn btn-sm btn-primary mt-1" onclick="updateQty(<?php echo $cart->cart_id; ?>)" name="updateCart">Update</button>
 
                                  </form>                          </div>
@@ -95,7 +96,7 @@
         <div class="row">
             <div class="col-sm-12 text-end">
                 <input type="hidden" name="coupon_code"  value="<?php  echo $code; ?>">
-                <button type="submit" name="newOrder" class="btn btn-lg btn-success">Please Order</button>
+                <button type="submit" name="newOrder" class="btn btn-lg btn-success">Place Order</button>
             </div>
         </div>
         </form>
@@ -106,7 +107,7 @@
 </div>
 <script>
     function updateQty(id){
-        var qty = $("#"+id).val();
+        var qty = Math.abs($("#"+id).val());
         $.ajax({
             url:"/Cart/update/"+id,
             type:"POST",

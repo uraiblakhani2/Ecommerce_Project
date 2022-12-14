@@ -16,12 +16,26 @@ class Review extends \app\core\Controller
             $reviewModel->rating = $_POST['rating'];
             $reviewModel->comment = $_POST['comment'];
             
-            $eligibleReview = $reviewModel->checkIsEligible($productId);
-            
+            $eligibleReview = $reviewModel->checkIsEligible($productId, $_SESSION['buyer_id']);
 
+            if(empty($eligibleReview)){
+                header("location:/home/productDetail/$productId"."?error=You must purchase this product before you can leave a review");
+
+            }
+            else{
+
+            //     $reviews = $reviewModel->getReviewByBuyerId($_SESSION['buyer_id']);
+            // if(!empty($reviews)){
+            //     header("location:/home/productDetail/$productId"."?error=You are not allowed to leave more then 1 review");
+
+            // }
+            // else{
             $reviewModel->create();
             header("location:/home/productDetail/$productId");
         }
-        header("location:/home/productDetail/$productId");
+            
+            
+            
+        }
     }
 }

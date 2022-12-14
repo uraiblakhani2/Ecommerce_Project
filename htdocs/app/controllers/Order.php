@@ -24,16 +24,24 @@ class Order extends \app\core\Controller
                 $discountPer = $coupon->discount_per;
             }
 
+            $order = new OrderModel();
+
             //create new order
             foreach ($carts as $cart){
-                $order = new OrderModel();
                 $order->buyer_id = $buyerId;
+                if($cart->product_id == "1"){
+                    $order->updateMembership($buyerId);
+                    $_SESSION['hasMembership'] = 'yes';
+                }
                 $order->product_id = $cart->product_id;
                 $order->qty = $cart->qty;
                 $order->price = $cart->price;
                 $order->order_date = date('Y-m-d');
                 $order->order_status = "New";
                 $order->coupon_code = $couponCode;
+                if(!empty($_SESSION['hasMembership'])){
+                    $discountPer = $discountPer + 10;
+                }
                 $order->discount_per = $discountPer;
                 $order->create();
 
@@ -53,7 +61,7 @@ class Order extends \app\core\Controller
         $orderModel = new OrderModel();
         $ship = new OrderModel();
         $orders = $orderModel->getBuyerOrders($buyerId);
-        $ships = $ship->getAllships();
+        $ships = $ship->getBuyerShipments($buyerId);
         
         require 'app/views/buyer/my-order.php';
     }
@@ -83,9 +91,8 @@ class Order extends \app\core\Controller
             //update order status
             $orders = $ship->updateOrderStatus($orderId, "Shipped");
 
-            $ship->order_id = $orderId;
-            $ship->tracking_number = $_POST['tracking_number'];
-            $ship->shipCreate();
+            $tracking_number = $_POST['tracking_number'];
+            $ship->shipCreate($orderId,$tracking_number);
 
             header("location:/Order/seller");
         }

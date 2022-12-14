@@ -1,6 +1,6 @@
 <?php include 'app\views\layout\header.php'; ?>
 <?php include 'app\views\layout\footer.php'; ?>
-<link href="/public/css/style2.css" rel="stylesheet">
+
 
 
 <?php
@@ -31,7 +31,7 @@ if(isset($_GET['message'])){
     </div>
     <div class="row">
         <div class="col-sm-4">
-            <img src="<?php echo "/public/images/" . $product->image; ?>"/>
+            <img src="<?php echo "/public/images/" . $product->image; ?>" width="300" height="300"/>
         </div>
         <div class="col-sm-8">
             <h2><?php echo $product->name; ?></h2>

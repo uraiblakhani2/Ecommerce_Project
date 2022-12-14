@@ -82,12 +82,15 @@ class Product extends \app\core\Model
         $STMT->execute(['product_id' => $this->product_id,'buyer_id' => $this->buyer_id]);
     }
 
-    public function getReports($seller_id){
-        $SQL = "SELECT * FROM  listing_reports inner join products on products.product_id=listing_reports.product_id WHERE seller_id=:seller_id";
+    
+  
 
-		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute(['seller_id'=>$seller_id]);
-		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Booking');
-		return $STMT->fetch();
-	}
+     public function getReports(){
+        $sql = "SELECT * FROM listing_reports";
+		$STMT = self::$_connection->prepare($sql);
+		$STMT->execute();
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
+		return $STMT->fetchAll();
+    }
+
 }

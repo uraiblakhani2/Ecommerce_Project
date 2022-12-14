@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Buyer;
 use app\models\Seller;
+use app\models\OrderModel;
 
 class Login extends \app\core\Controller
 {
@@ -25,18 +26,24 @@ class Login extends \app\core\Controller
                     $_SESSION['buyer_name'] = $user->first_name;
 					$_SESSION['secret_key'] = $user->secret_key;
 					$_SESSION['secret_key2'] = $user->secret_key;
+					$order = new OrderModel();
+					$subscription = $order->checkMembership($_SESSION['buyer_id']);
+					if(!empty($subscription)){
+						$_SESSION['hasMembership'] = 'yes';
+					}
+
                     $_SESSION['is_logged_in'] = 'buyer';
                      header("location:/Login/account");
-                }else{
+                 }else{
                     header("location:/Login/buyer?error=Invalid Password");
                 }
 
-            }else{
+             }else{
                 header("location:/Login/buyer?error=Invalid user name");
             }
 
         }else{
-            header("location:/Login/buyer");
+           header("location:/Login/buyer");
         }
     }
 
