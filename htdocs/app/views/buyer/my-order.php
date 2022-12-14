@@ -11,13 +11,13 @@
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th width="50%">Product</th>
-                    <th>Price</th>
-                    <th width="10%">Qty</th>
-                    <th>Discount</th>
-                    <th>Total</th>
-                    <th>Status</th>
-                    <th>Tracking Num</th>
+                    <th width="50%"><?= _('Product') ?></th>
+                    <th><?= _('Price') ?></th>
+                    <th width="10%"><?= _('Qty') ?></th>
+                    <th><?= _('Discount') ?></th>
+                    <th><?= _('Total') ?></th>
+                    <th><?= _('Status') ?></th>
+                    <th><?= _('Tracking Num') ?></th>
                 </tr>
                 </thead>
                 <tbody>

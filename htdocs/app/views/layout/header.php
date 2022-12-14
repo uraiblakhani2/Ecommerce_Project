@@ -19,7 +19,9 @@
 <div class="container-fluid">
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/home/index">Logo</a>
+            <a class="navbar-brand" href="/home/index"><?= _('Logo') ?></a>
+
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,8 +30,20 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/home/index">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/home/index"><?= _('Home') ?></a>
                     </li>
+
+                
+            </ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"> <?= _('Language') ?></li>
+           
+            <ul><?php
+            global $localizations;
+            foreach ($localizations as $locale){
+                echo "<li class=nav-item><a href='?lang=$locale'>". \Locale::getDisplayName($locale,$locale) . "</a></li>";
+            }
+            ?>
+            </ul>
 
                 </ul>
                 <div class="d-flex">
@@ -38,22 +52,22 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                    aria-expanded="false">
-                                    Register
+                                   <?= _('Register') ?>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="/Register/buyer">As a Buyer</a></li>
-                                    <li><a class="dropdown-item" href="/Register/seller">As a Seller</a></li>
+                                    <li><a class="dropdown-item" href="/Register/buyer"><?= _('As a Buyer') ?></a></li>
+                                    <li><a class="dropdown-item" href="/Register/seller"><?= _('As a Seller') ?></a></li>
                                 </ul>
                             </li>
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                    aria-expanded="false">
-                                    Login
+                                   <?= _('Login') ?>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="/Login/buyer">As a Buyer</a></li>
-                                    <li><a class="dropdown-item" href="/Login/seller">As a Seller</a></li>
+                                    <li><a class="dropdown-item" href="/Login/buyer"><?= _('As a Buyer') ?></a></li>
+                                    <li><a class="dropdown-item" href="/Login/seller"><?= _('As a Seller') ?></a></li>
                                 </ul>
                             </li>
                         <?php }
@@ -64,22 +78,22 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                    aria-expanded="false">
-                                    Seller Panel
+                                   <?= _('Seller Panel') ?>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="/SellerProduct/index">Products</a></li>
-                                    <li><a class="dropdown-item" href="/Order/seller">Orders</a></li>
+                                    <li><a class="dropdown-item" href="/SellerProduct/index"><?= _('Products') ?></a></li>
+                                    <li><a class="dropdown-item" href="/Order/seller"><?= _('Orders') ?></a></li>
                                 </ul>
                             </li>
                             <?php }
                             else{ ?>
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="/Cart/index">Carts</a>
+                                    <a class="nav-link active" aria-current="page" href="/Cart/index"><?= _('Carts') ?></a>
                                 </li>
 
                                 <?php if (is_null($_SESSION['secret_key2'])) { ?> 
                                 <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/Login/setup2fa">Setup 2fa</a>
+                                <a class="nav-link active" aria-current="page" href="/Login/setup2fa"><?= _('Setup 2fa') ?></a>
                                     
                                       <?php } ?>
                                 
@@ -91,13 +105,13 @@
                                         Buyer Panel
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="/Order/myorders">My Orders</a></li>
+                                        <li><a class="dropdown-item" href="/Order/myorders"><?= _('My Orders') ?></a></li>
                                     </ul>
                                 </li>
                                 <?php } ?>
 
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/Login/logout">Logout</a>
+                                <a class="nav-link active" aria-current="page" href="/Login/logout"><?= _('Logout') ?></a>
                             </li>
                         <?php } ?>
 

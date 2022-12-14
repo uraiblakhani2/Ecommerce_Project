@@ -11,16 +11,16 @@
                 </div>
                 <div class="col-sm-2">
                     <select class="form-control" name="price">
-                        <option value="">Filter by Price</option>
-                        <option value="100">Below $100</option>
-                        <option value="200">Below $200</option>
-                        <option value="500">Below $500</option>
-                        <option value="1000">Below $1000</option>
+                        <option value=""><?= _('Filter by Price') ?></option>
+                        <option value="100"><?= _('Below $100') ?></option>
+                        <option value="200"><?= _('Below $200') ?></option>
+                        <option value="500"><?= _('Below $500') ?></option>
+                        <option value="1000"><?= _('Below $1000') ?></option>
                     </select>
                 </div>
                 <div class="col-sm-2">
                     <select class="form-control" name="category">
-                        <option value="">Filter by Category</option>
+                        <option value=""><?= _('Filter by Category') ?></option>
                         <?php
                         foreach ($categories as $category){
                             echo "<option value='".$category->category_id."'>$category->category_name</option>";
@@ -30,19 +30,19 @@
                 </div>
                 <div class="col-sm-2">
                     <select class="form-control" name="available">
-                        <option value="">Filter by Availability</option>
-                        <option value="Yes">Yes</option>
+                        <option value=""><?= _('Filter by Availability') ?></option>
+                        <option value="Yes"><?= _('Yes') ?></option>
                     </select>
                 </div>
                 <div class="col-sm-2">
                     <select class="form-control" name="rating">
-                        <option value="">Filter by Rating</option>
-                        <option value="top">Top Rating</option>
-                        <option value="low">Low Rating</option>
+                        <option value=""><?= _('Filter by Rating') ?></option>
+                        <option value="top"><?= _('Top Rating') ?></option>
+                        <option value="low"><?= _('Low Rating') ?></option>
                     </select>
                 </div>
                 <div class="col-sm-1">
-                   <button type="submit" class="btn btn-warning" name="filter">Go</button>
+                   <button type="submit" class="btn btn-warning" name="filter"><?= _('Go') ?></button>
                 </div>
             </div>
 
@@ -58,7 +58,7 @@
                 <div class="card-body text-center">
                     <h5 class="card-title"><?php echo $product->name;?></h5>
                     <p class="card-text">$<?php echo $product->price;?></p>
-                    <a href="/home/productDetail/<?php echo $product->product_id;?>" class="btn btn-primary">Product detail</a>
+                    <a href="/home/productDetail/<?php echo $product->product_id;?>" class="btn btn-primary"><?= _('Product detail') ?></a>
                 </div>
             </div>
         </div>

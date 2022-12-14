@@ -1,7 +1,7 @@
 <?php include 'app\views\layout\header.php'; ?>
 <?php include 'app\views\layout\footer.php'; ?>
 <div class="container mt-5">
-<h4><?php if(!empty($_SESSION['hasMembership'])){echo "You have membership and will automatically receive 10% off your order";}?></h4>
+<h4><?php if(!empty($_SESSION['hasMembership'])){echo _("You have membership and will automatically receive 10% off your order");}?></h4>
 
     <div class="row">
         <div class="col-sm-12">
@@ -16,10 +16,10 @@
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th width="50%">Product</th>
-                    <th>Price</th>
-                    <th width="10%">Qty</th>
-                    <th>Total</th>
+                    <th width="50%"><?= _('Product') ?></th>
+                    <th><?= _('Price') ?></th>
+                    <th width="10%"><?= _('Qty') ?></th>
+                    <th><?= _('Total') ?></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -40,7 +40,7 @@
                                     <a href="/home/productDetail/<?php echo $cart->product_id; ?>"><?php echo $cart->name; ?></a>
                                     <br />
                                     <br />
-                                    <a href="/Cart/delete/<?php echo $cart->cart_id; ?>" onclick="return confirm('Are you sure want to delete it?')" class="text-danger">Delete</a>
+                                    <a href="/Cart/delete/<?php echo $cart->cart_id; ?>" onclick="return confirm('Are you sure want to delete it?')" class="text-danger"><?= _('Delete') ?></a>
 
                                 </div>
                             </div>
@@ -52,7 +52,7 @@
                           <div>
                                  <form>
                                      <input type="number" name="qty" value="<?php echo $cart->qty; ?>" id="<?php echo $cart->cart_id; ?>" class="form-control" required >
-                                     <button type="button" class="btn btn-sm btn-primary mt-1" onclick="updateQty(<?php echo $cart->cart_id; ?>)" name="updateCart">Update</button>
+                                     <button type="button" class="btn btn-sm btn-primary mt-1" onclick="updateQty(<?php echo $cart->cart_id; ?>)" name="updateCart"><?= _('Update') ?></button>
 
                                  </form>                          </div>
                         </td>
@@ -62,7 +62,7 @@
                     </tr>
                 <?php } ?>
                 <tr>
-                    <th colspan="3" class="text-end">Sub Total:</th>
+                    <th colspan="3" class="text-end"><?= _('Sub Total:') ?></th>
                     <td>$<?php echo $subTotal;?></td>
                 </tr>
                 <tr>
@@ -71,12 +71,12 @@
                         <form action="" method="get">
                             <input type="text" name="coupon" class="form-control" value="<?php  echo $code; ?>" placeholder="Apply coupon code">
                             <?php if($coupon){echo "<p class='text-success'>Valid! get $coupon->discount_per % off</p>";}?>
-                            <button type="submit" class="btn btn-sm btn-warning mt-1" name="apply">Apply</button>
+                            <button type="submit" class="btn btn-sm btn-warning mt-1" name="apply"><?= _('Apply') ?></button>
                         </form>
                     </td>
                 </tr>
                 <tr>
-                    <th colspan="3" class="text-end">Discount:</th>
+                    <th colspan="3" class="text-end"><?= _('Discount :') ?></th>
                     <td>$<?php
                         if($coupon){
                             $discount = ($subTotal * $coupon->discount_per) / 100;
@@ -86,7 +86,7 @@
                         ?></td>
                 </tr>
                 <tr>
-                    <th colspan="3" class="text-end">Pay:</th>
+                    <th colspan="3" class="text-end"><?= _('Pay :') ?></th>
                     <td>$<?php echo $subTotal-$discount;?></td>
                 </tr>
                 </tbody>
@@ -96,12 +96,12 @@
         <div class="row">
             <div class="col-sm-12 text-end">
                 <input type="hidden" name="coupon_code"  value="<?php  echo $code; ?>">
-                <button type="submit" name="newOrder" class="btn btn-lg btn-success">Place Order</button>
+                <button type="submit" name="newOrder" class="btn btn-lg btn-success"><?= _('Place Order') ?></button>
             </div>
         </div>
         </form>
         <?php }else{
-            echo "<h4>No products in the cart</h4>";
+            echo "<h4>_(No products in the cart)</h4>";
         }?>
     </div>
 </div>

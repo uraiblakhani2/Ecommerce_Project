@@ -3,24 +3,24 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-sm-12">
-            <h2>My Products</h2>
+            <h2><?= _('My Products') ?></h2>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-12">
-            <a href="/SellerProduct/create">Add new Product</a>
+            <a href="/SellerProduct/create"><?= _('Add new Product') ?></a>
             <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th>Image</th>
-                    <th>Product Name</th>
-                    <th>Price</th>
-                    <th>In Stock</th>
-                    <th>Brand</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                    <th>Reports</th>
+                    <th><?= _('Image') ?></th>
+                    <th><?= _('Product Name') ?></th>
+                    <th><?= _('Price') ?></th>
+                    <th><?= _('In Stock') ?></th>
+                    <th><?= _('Brand') ?></th>
+                    <th><?= _('Edit') ?></th>
+                    <th><?= _('Delete') ?></th>
+                    <th><?= _('Reports') ?></th>
                     
                 </tr>
                 </thead>
@@ -37,8 +37,8 @@
                     
 
 
-                    <td><a href="/SellerProduct/edit/<?php echo $product->product_id;?>">Edit</a></td>
-                    <td><a href="/SellerProduct/delete/<?php echo $product->product_id;?>" onclick="return confirm('Are you sure want to delete it?')" class="text-danger">Delete</a></td>
+                    <td><a href="/SellerProduct/edit/<?php echo $product->product_id;?>"><?= _('Edit') ?></a></td>
+                    <td><a href="/SellerProduct/delete/<?php echo $product->product_id;?>" onclick="return confirm('Are you sure want to delete it?')" class="text-danger"><?= _('Delete') ?></a></td>
                     
                     
                     <?php foreach ($reports as $items) {

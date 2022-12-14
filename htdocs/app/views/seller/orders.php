@@ -2,7 +2,7 @@
 <?php include 'app\views\layout\footer.php'; ?>
 <div class="container mt-5">
     <div class="row">
-        <button class="btn btn-success">Seller Balance: $<?php echo $balance; ?></button>
+        <button class="btn btn-success"><?= _('Seller Balance: $') ?><?php echo $balance; ?></button>
 
     </div>
     <hr/>
@@ -23,15 +23,15 @@
             </div>
             <div class="col-sm-3">
                 <select class="form-control" name="price">
-                    <option value="">Filter by Price</option>
-                    <option value="100">Below $100</option>
-                    <option value="200">Below $200</option>
-                    <option value="500">Below $500</option>
-                    <option value="1000">Below $1000</option>
+                    <option value=""><?= _('Filter by Price') ?></option>
+                    <option value="100"><?= _('Below $100') ?></option>
+                    <option value="200"><?= _('Below $200') ?></option>
+                    <option value="500"><?= _('Below $500') ?></option>
+                    <option value="1000"><?= _('Below $1000') ?></option>
                 </select>
             </div>
             <div class="col-sm-1">
-                <button type="submit" class="btn btn-warning" name="filter">GO</button>
+                <button type="submit" class="btn btn-warning" name="filter"><?= _('GO') ?></button>
             </div>
 
         </div>
@@ -41,11 +41,11 @@
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th width="50%">Product</th>
-                    <th>Price</th>
-                    <th width="10%">Qty</th>
-                    <th>Discount</th>
-                    <th>Total</th>
+                    <th width="50%"><?= _('Product') ?></th>
+                    <th><?= _('Price') ?></th>
+                    <th width="10%"><?= _('Qty') ?></th>
+                    <th><?= _('Discount') ?></th>
+                    <th><?= _('Total') ?></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -65,10 +65,10 @@
                                     <?php if ($order->order_status == "New") { ?>
                                         <a href="/Order/cancelOrder/<?php echo $order->order_id; ?>"
                                            class="text-warning"
-                                           onclick="return confirm('Are you sure want to cancel it?')">Cancel order</a>
+                                           onclick="return confirm('Are you sure want to cancel it?')"><?= _('Cancel order') ?></a>
                                         &nbsp;&nbsp;
                                         <a href="/Order/ship/<?php echo $order->order_id; ?>"
-                                           class="text-info">Item shipped?</a>
+                                           class="text-info"><?= _('Item shipped?') ?></a>
                                     <?php }
                                     elseif ($order->order_status == "Cancelled") {
                                         echo "<span class='text-danger'>Cancelled</span>";

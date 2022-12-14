@@ -1,0 +1,470 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-13 21:41-0500\n"
+"PO-Revision-Date: 2022-12-13 22:24-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_CA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: app/views/buyer/cart.php:4
+#, php-format
+msgid "You have membership and will automatically receive 10% off your order"
+msgstr "Vous êtes membre et recevrez automatiquement 10 % de réduction sur votre commande"
+
+#: app/views/buyer/cart.php:19 app/views/buyer/my-order.php:14
+#: app/views/seller/orders.php:44
+msgid "Product"
+msgstr "Produit"
+
+#: app/views/buyer/cart.php:20 app/views/buyer/my-order.php:15
+#: app/views/seller/orders.php:45 app/views/seller/product/create.php:19
+#: app/views/seller/product/edit.php:19 app/views/seller/product/index.php:18
+msgid "Price"
+msgstr "Prix"
+
+#: app/views/buyer/cart.php:21 app/views/buyer/my-order.php:16
+#: app/views/seller/orders.php:46
+msgid "Qty"
+msgstr "Qté"
+
+#: app/views/buyer/cart.php:22 app/views/buyer/my-order.php:18
+#: app/views/seller/orders.php:48
+msgid "Total"
+msgstr "Totale"
+
+#: app/views/buyer/cart.php:43 app/views/seller/product/index.php:22
+#: app/views/seller/product/index.php:41
+msgid "Delete"
+msgstr "Effacer"
+
+#: app/views/buyer/cart.php:55
+msgid "Update"
+msgstr "Mise à jour"
+
+#: app/views/buyer/cart.php:65
+msgid "Sub Total:"
+msgstr "Sous-total :"
+
+#: app/views/buyer/cart.php:74
+msgid "Apply"
+msgstr "Appliquer"
+
+#: app/views/buyer/cart.php:79
+msgid "Discount :"
+msgstr "Remise :"
+
+#: app/views/buyer/cart.php:89
+msgid "Pay :"
+msgstr "Payer :"
+
+#: app/views/buyer/cart.php:99
+msgid "Place Order"
+msgstr "Passer la commande"
+
+#: app/views/buyer/my-order.php:17 app/views/seller/orders.php:47
+msgid "Discount"
+msgstr "Remise"
+
+#: app/views/buyer/my-order.php:19
+msgid "Status"
+msgstr "Statut"
+
+#: app/views/buyer/my-order.php:20
+msgid "Tracking Num"
+msgstr "Numéro de suivi"
+
+#: app/views/home/index.php:14 app/views/seller/orders.php:26
+msgid "Filter by Price"
+msgstr "Filtrer par prix"
+
+#: app/views/home/index.php:15 app/views/seller/orders.php:27
+msgid "Below $100"
+msgstr "Moins de 100 $"
+
+#: app/views/home/index.php:16 app/views/seller/orders.php:28
+msgid "Below $200"
+msgstr "Moins de 200 $"
+
+#: app/views/home/index.php:17 app/views/seller/orders.php:29
+msgid "Below $500"
+msgstr "Moins de 500 $"
+
+#: app/views/home/index.php:18 app/views/seller/orders.php:30
+msgid "Below $1000"
+msgstr "Moins de 1000$"
+
+#: app/views/home/index.php:23
+msgid "Filter by Category"
+msgstr "Filtrer par catégorie"
+
+#: app/views/home/index.php:33
+msgid "Filter by Availability"
+msgstr "Filtrer par disponibilité"
+
+#: app/views/home/index.php:34
+msgid "Yes"
+msgstr "Oui"
+
+#: app/views/home/index.php:39
+msgid "Filter by Rating"
+msgstr "Filtrer par note"
+
+#: app/views/home/index.php:40
+msgid "Top Rating"
+msgstr "Meilleure note"
+
+#: app/views/home/index.php:41
+msgid "Low Rating"
+msgstr "Note faible"
+
+#: app/views/home/index.php:45
+msgid "Go"
+msgstr "Aller"
+
+#: app/views/home/index.php:61
+msgid "Product detail"
+msgstr "Détail du produit"
+
+#: app/views/home/product_detail.php:30
+msgid "Product Detail"
+msgstr "Détail du produit"
+
+#: app/views/home/product_detail.php:41
+msgid "Brand:"
+msgstr "Marque:"
+
+#: app/views/home/product_detail.php:45
+msgid "UPC:"
+msgstr "CUP :"
+
+#: app/views/home/product_detail.php:50 app/views/seller/product/create.php:50
+#: app/views/seller/product/edit.php:55
+msgid "Description"
+msgstr "La description"
+
+#: app/views/home/product_detail.php:57
+msgid "Add to cart"
+msgstr "Ajouter au panier"
+
+#: app/views/home/product_detail.php:61
+msgid "Give seller feedback"
+msgstr "Donnez votre avis au vendeur"
+
+#: app/views/home/product_detail.php:62
+msgid "Report Listing"
+msgstr "Liste des rapports"
+
+#: app/views/home/product_detail.php:71
+msgid "Select Rating"
+msgstr "Sélectionnez la notation"
+
+#: app/views/home/product_detail.php:83
+msgid "Submit your review"
+msgstr "Soumettez votre avis"
+
+#: app/views/home/product_detail.php:91
+msgid "Reviews"
+msgstr "Commentaires"
+
+#: app/views/home/product_detail.php:117
+msgid "Seller Feedback"
+msgstr "Commentaires du vendeur"
+
+#: app/views/home/product_detail.php:141
+msgid "Give Seller Feedback"
+msgstr "Donnez votre avis au vendeur"
+
+#: app/views/home/product_detail.php:146
+msgid "Enter your feedback"
+msgstr "Entrez vos commentaires"
+
+#: app/views/home/product_detail.php:149
+msgid "Submit your feedback"
+msgstr "Envoyez vos commentaires"
+
+#: app/views/layout/header.php:22
+msgid "Logo"
+msgstr "Logo"
+
+#: app/views/layout/header.php:31
+msgid "Home"
+msgstr "Maison"
+
+#: app/views/layout/header.php:41
+msgid "Register"
+msgstr "S'inscrire"
+
+#: app/views/layout/header.php:44 app/views/layout/header.php:55
+msgid "As a Buyer"
+msgstr "En tant qu'acheteur"
+
+#: app/views/layout/header.php:45 app/views/layout/header.php:56
+msgid "As a Seller"
+msgstr "En tant que vendeur"
+
+#: app/views/layout/header.php:52
+msgid "Login"
+msgstr "Connexion"
+
+#: app/views/layout/header.php:67
+msgid "Seller Panel"
+msgstr "Panneau vendeur"
+
+#: app/views/layout/header.php:70
+msgid "Products"
+msgstr "Des produits"
+
+#: app/views/layout/header.php:71
+msgid "Orders"
+msgstr "Ordres"
+
+#: app/views/layout/header.php:77
+msgid "Carts"
+msgstr "Chariots"
+
+#: app/views/layout/header.php:82 app/views/Login/twofasetup.php:30
+msgid "Setup 2fa"
+msgstr "Configuration 2fa"
+
+#: app/views/layout/header.php:94
+msgid "My Orders"
+msgstr "Mes commandes"
+
+#: app/views/layout/header.php:100
+msgid "Logout"
+msgstr "Se déconnecter"
+
+#: app/views/Login/account.php:3
+msgid "Account page"
+msgstr "Compte"
+
+#: app/views/Login/account.php:43
+msgid "Old Password"
+msgstr "ancien mot de passe"
+
+#: app/views/Login/account.php:48
+msgid "New Password"
+msgstr "nouveau mot de passe"
+
+#: app/views/Login/account.php:53
+msgid "Confirm password"
+msgstr "Confirmez le mot de passe"
+
+#: app/views/Login/account.php:59
+msgid "set up 2-factor authentication"
+msgstr "mettre en place une authentification à 2 facteurs"
+
+#: app/views/Login/account.php:68 app/views/Login/buyer-login.php:27
+#: app/views/Login/check2fa.php:37 app/views/Login/seller-login.php:27
+#: app/views/Login/twofasetup.php:43 app/views/Register/buyer-register.php:51
+#: app/views/Register/seller-register.php:26 app/views/seller/item-ship.php:21
+#: app/views/seller/product/create.php:54 app/views/seller/product/edit.php:59
+msgid "Submit"
+msgstr "Soumettre"
+
+#: app/views/Login/account.php:72
+msgid "Take me home"
+msgstr "Emmène moi chez toi"
+
+#: app/views/Login/buyer-login.php:9
+msgid "Buyer Login"
+msgstr "Connexion acheteur"
+
+#: app/views/Login/buyer-login.php:15 app/views/Login/seller-login.php:15
+#: app/views/Register/buyer-register.php:15
+#: app/views/Register/seller-register.php:15
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: app/views/Login/buyer-login.php:20 app/views/Login/seller-login.php:20
+#: app/views/Register/buyer-register.php:44
+#: app/views/Register/seller-register.php:19
+msgid "Password"
+msgstr "Mot de passe"
+
+#: app/views/Login/check2fa.php:3
+msgid "2fa check"
+msgstr "chèque 2fa"
+
+#: app/views/Login/check2fa.php:15
+msgid "Hi"
+msgstr "Salut"
+
+#: app/views/Login/check2fa.php:15
+msgid "Provide your 2-factor authentication code."
+msgstr "Fournissez votre code d'authentification à 2 facteurs."
+
+#: app/views/Login/check2fa.php:23
+msgid "Verify 2fa"
+msgstr "Vérifier 2fa"
+
+#: app/views/Login/check2fa.php:29
+msgid "Enter Code Generated by 2fa app"
+msgstr "Entrez le code généré par l'application 2fa"
+
+#: app/views/Login/seller-login.php:9
+msgid "Seller Login"
+msgstr "Connexion vendeur"
+
+#: app/views/Login/twofasetup.php:3
+msgid "2fa set up"
+msgstr "configuration 2fa"
+
+#: app/views/Login/twofasetup.php:17
+msgid ""
+"Please scan the QR-code on the screen with your favorite \n"
+"Authenticator software, such as Google Authenticator. The \n"
+"authenticator software will generate codes that are valid for 30 \n"
+"seconds only. Enter such a code while and submit it while it is \n"
+"still valid to confirm that the 2-factor authentication can be \n"
+"applied to your account."
+msgstr ""
+"Veuillez scanner le code QR à l'écran avec votre favori\n"
+"Logiciel d'authentification, tel que Google Authenticator. La\n"
+"le logiciel d'authentification générera des codes valables 30\n"
+"secondes seulement. Entrez un tel code pendant et soumettez-le pendant qu'il est\n"
+"toujours valide pour confirmer que l'authentification à 2 facteurs peut être\n"
+"appliqué à votre compte."
+
+#: app/views/Login/twofasetup.php:37
+msgid "Current code shown by the app"
+msgstr "Code actuel affiché par l'application"
+
+#: app/views/Register/buyer-register.php:9
+msgid "Buyer Register"
+msgstr "Registre des acheteurs"
+
+#: app/views/Register/buyer-register.php:19
+msgid "First Name"
+msgstr "Prénom"
+
+#: app/views/Register/buyer-register.php:23
+msgid "Last Name"
+msgstr "Nom de famille"
+
+#: app/views/Register/buyer-register.php:27
+msgid "Street Name"
+msgstr "Nom de rue"
+
+#: app/views/Register/buyer-register.php:31
+msgid "Postal Code"
+msgstr "code postal"
+
+#: app/views/Register/buyer-register.php:36
+msgid "City"
+msgstr "Ville"
+
+#: app/views/Register/buyer-register.php:40
+msgid "Phone number"
+msgstr "Numéro de téléphone"
+
+#: app/views/Register/seller-register.php:9
+msgid "Seller Register"
+msgstr "Registre des vendeurs"
+
+#: app/views/seller/item-ship.php:10
+msgid "Item shipped for order ID: "
+msgstr "Article expédié pour l'ID de commande :"
+
+#: app/views/seller/item-ship.php:16
+msgid "Tracking number"
+msgstr "Numéro de suivi"
+
+#: app/views/seller/orders.php:5
+msgid "Seller Balance: $"
+msgstr "Solde vendeur : $"
+
+#: app/views/seller/orders.php:34
+msgid "GO"
+msgstr "ALLER"
+
+#: app/views/seller/orders.php:68
+msgid "Cancel order"
+msgstr "Annuler la commande"
+
+#: app/views/seller/orders.php:71
+msgid "Item shipped?"
+msgstr "Article expédié ?"
+
+#: app/views/seller/product/create.php:6 app/views/seller/product/index.php:11
+msgid "Add new Product"
+msgstr "Ajouter un nouveau produit"
+
+#: app/views/seller/product/create.php:11 app/views/seller/product/edit.php:11
+msgid "Go to product list"
+msgstr "Aller à la liste des produits"
+
+#: app/views/seller/product/create.php:15 app/views/seller/product/edit.php:15
+#: app/views/seller/product/index.php:17
+msgid "Product Name"
+msgstr "Nom du produit"
+
+#: app/views/seller/product/create.php:23 app/views/seller/product/edit.php:23
+#: app/views/seller/product/index.php:20
+msgid "Brand"
+msgstr "Marque"
+
+#: app/views/seller/product/create.php:27 app/views/seller/product/edit.php:27
+msgid "UPC"
+msgstr "CUP"
+
+#: app/views/seller/product/create.php:31 app/views/seller/product/edit.php:31
+msgid "Stock"
+msgstr "Stocker"
+
+#: app/views/seller/product/create.php:35 app/views/seller/product/edit.php:35
+msgid "Category"
+msgstr "Catégorie"
+
+#: app/views/seller/product/create.php:37
+msgid "Select"
+msgstr "Sélectionner"
+
+#: app/views/seller/product/create.php:46 app/views/seller/product/edit.php:50
+#: app/views/seller/product/index.php:16
+msgid "Image"
+msgstr "Image"
+
+#: app/views/seller/product/create.php:55 app/views/seller/product/edit.php:60
+msgid "Reset"
+msgstr "Réinitialiser"
+
+#: app/views/seller/product/edit.php:6
+msgid "Edit Product"
+msgstr "Modifier le produit"
+
+#: app/views/seller/product/edit.php:37
+msgid "Select-"
+msgstr "Sélectionner-"
+
+#: app/views/seller/product/edit.php:52
+msgid "Old Image"
+msgstr "Ancienne image"
+
+#: app/views/seller/product/index.php:6
+msgid "My Products"
+msgstr "Mes produits"
+
+#: app/views/seller/product/index.php:19
+msgid "In Stock"
+msgstr "En stock"
+
+#: app/views/seller/product/index.php:21 app/views/seller/product/index.php:40
+msgid "Edit"
+msgstr "Éditer"
+
+#: app/views/seller/product/index.php:23
+msgid "Reports"
+msgstr "Rapports"
